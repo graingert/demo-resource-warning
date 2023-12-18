@@ -1,0 +1,19 @@
+[tool.pytest.ini_options]
+xfail_strict = true
+python_classes = ["Test", "*TestCase"]
+markers = [
+    "limit_memory: Limit memory with memray",
+    "requires_network: This test needs access to the Internet",
+    "integration: Slow integrations tests not run by default",
+]
+log_level = "DEBUG"
+filterwarnings = [
+    "error",
+    '''default:ssl\.TLSVersion\.TLSv1 is deprecated:DeprecationWarning''',
+    '''default:ssl\.PROTOCOL_TLS is deprecated:DeprecationWarning''',
+    '''default:ssl\.PROTOCOL_TLSv1 is deprecated:DeprecationWarning''',
+    '''default:ssl\.TLSVersion\.TLSv1_1 is deprecated:DeprecationWarning''',
+    '''default:ssl\.PROTOCOL_TLSv1_1 is deprecated:DeprecationWarning''',
+    '''default:ssl\.PROTOCOL_TLSv1_2 is deprecated:DeprecationWarning''',
+    '''default:ssl NPN is deprecated, use ALPN instead:DeprecationWarning''',
+]
